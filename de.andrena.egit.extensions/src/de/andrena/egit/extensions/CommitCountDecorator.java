@@ -78,7 +78,7 @@ public class CommitCountDecorator implements ILightweightLabelDecorator {
 
 	private int count(Iterator<?> iterator) {
 		int count = 0;
-		while (iterator.hasNext() ) {
+		while (iterator.hasNext()) {
 			count++;
 			iterator.next();
 		}
