@@ -19,5 +19,35 @@
          </description>
       </decorator>
    </extension>
-
+    <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.jdt.ui.PackageExplorer?after=additions">
+         <command
+               commandId="de.andrena.egit.extensions.filter.command"
+               icon="icons/Clock.gif"
+               label="Display only recently touched files"
+               style="toggle"
+               tooltip="Display only recently touched files">
+         </command>
+      </menuContribution>
+      </extension>
+    <extension
+          point="org.eclipse.ui.commands">
+     <command
+           id="de.andrena.egit.extensions.filter.command"
+           name="de.andrena.egit.extensions.filter.command">
+        <state
+              class="org.eclipse.ui.handlers.RegistryToggleState:true"
+              id="org.eclipse.ui.commands.toggleState">
+        </state>
+     </command>
+    </extension>
+    <extension
+          point="org.eclipse.ui.handlers">
+       <handler
+             class="de.andrena.egit.extensions.filter.FilterPackageExplorerHandler"
+             commandId="de.andrena.egit.extensions.filter.command">
+       </handler>
+    </extension>
 </plugin>
